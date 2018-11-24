@@ -1,2 +1,2 @@
 # DS-OOPs
-This repository will contain my university's projects.
+This repository will contain my university projects, practice tasks and assignments.
