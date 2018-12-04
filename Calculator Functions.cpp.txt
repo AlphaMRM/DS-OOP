@@ -21,13 +21,30 @@ CN CN::operator*(CN num)
 	return ans;
 }
 
+
 CN CN::operator/(CN num)
 {
-	CN ans;
-	ans.real = ((num.real*real)+(num.imaginary*imaginary)) / ((num.real*num.real) + (num.imaginary*num.imaginary));
-	ans.imaginary = ((num.real*imaginary) - (num.imaginary*real)) / ((num.real*num.real) + (num.imaginary*num.imaginary));
-	return ans;
+	try {
+		CN ans;
+		float x = ((num.real*num.real) + (num.imaginary*num.imaginary));
+		
+		if (x == 0) 
+		{
+			throw 0;
+		}
+		
+		ans.real = ((num.real*real) + (num.imaginary*imaginary)) / ((num.real*num.real) + (num.imaginary*num.imaginary));
+		ans.imaginary = ((num.real*imaginary) - (num.imaginary*real)) / ((num.real*num.real) + (num.imaginary*num.imaginary));
+		
+		return ans;
+	}
+
+	catch (int i) 
+	{
+		cout << "Can not do division. Denominator is 0. ";
+	}
 }
+
 
 CN CN::operator+ (CN num)
 {
